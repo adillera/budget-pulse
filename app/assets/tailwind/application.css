@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+@layer base {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    /* Text color */
+    -webkit-text-fill-color: inherit !important;
+
+    /* Background should be white */
+    background-color: white !important;
+
+    /* Force white background into Chrome’s autofill paint layer */
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+    box-shadow: 0 0 0 1000px white inset !important;
+
+    /* REQUIRED to override Chrome’s new light-dark autofill */
+    background-clip: content-box !important;
+  }
+
+  [type="email"],
+  [type="password"] {
+    @apply w-full border border-gray-300 rounded-md p-2;
+  }
+}
