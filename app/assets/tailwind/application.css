@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+@theme {
+  --color-budget-pulse-100: #0078ff;
+  --color-budget-pulse-200: #006de6;
+  --color-budget-pulse-300: #0061cc;
+  --color-budget-pulse-400: #0055b3;
+  --color-budget-pulse-500: #004aad;
+  --color-budget-pulse-600: #003f99;
+  --color-budget-pulse-700: #003380;
+  --color-budget-pulse-800: #002766;
+  --color-budget-pulse-900: #001c4d;
+}
+
 @layer base {
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
@@ -23,4 +35,12 @@
   [type="password"] {
     @apply w-full border border-gray-300 rounded-md p-2;
   }
+}
+
+.btn {
+  @apply w-full p-2 rounded-md hover:font-bold hover:cursor-pointer;
+}
+
+.btn-primary {
+  @apply bg-budget-pulse-500 hover:bg-budget-pulse-700 text-white;
 }
