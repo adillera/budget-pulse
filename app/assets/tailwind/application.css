@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-budget-pulse-100: #0078ff;
-  --color-budget-pulse-200: #006de6;
-  --color-budget-pulse-300: #0061cc;
-  --color-budget-pulse-400: #0055b3;
-  --color-budget-pulse-500: #004aad;
-  --color-budget-pulse-600: #003f99;
-  --color-budget-pulse-700: #003380;
-  --color-budget-pulse-800: #002766;
-  --color-budget-pulse-900: #001c4d;
+  --color-budget-pulse-100: #CCEAFF;
+  --color-budget-pulse-200: #A9D3EE;
+  --color-budget-pulse-300: #86BDDD;
+  --color-budget-pulse-400: #63A6CB;
+  --color-budget-pulse-500: #005796;
+  --color-budget-pulse-600: #004F82;
+  --color-budget-pulse-700: #00466E;
+  --color-budget-pulse-800: #003E62;
+  --color-budget-pulse-900: #023A5F;
+  --color-budget-pulse-1000: #02365B;
 }
 
 @layer base {
@@ -35,6 +36,11 @@
   [type="password"] {
     @apply w-full border border-gray-300 rounded-md p-2;
   }
+}
+
+body {
+  background-image: url("bg_pattern.png");
+  background-repeat: repeat;
 }
 
 .btn {
