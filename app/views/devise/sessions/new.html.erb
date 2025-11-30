@@ -1,39 +1,52 @@
 <div class="flex mx-auto items-center justify-center h-screen w-full">
-  <div class="bg-white border border-gray-200 shadow-sm p-8 rounded-md w-full max-w-xl">
-    <div class="flex w-full justify-center">
-      <%= image_tag "budgetpulse_long.svg", class: "w-64" %>
+  <div class="w-full max-w-xl border border-gray-200 shadow-xl rounded-xl">
+    <div class="flex w-full w-full bg-gray-100 py-4 rounded-t-xl">
+      <%= image_tag "budgetpulse_long.svg", class: "w-48 mx-auto" %>
     </div>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-4" }) do |f| %>
-      <div class="space-y-1">
-        <div class="text-sm font-medium text-slate-700">
-          <%= f.label :email %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-4 bg-white pt-2 pb-2 pl-12 pr-12" }) do |f| %>
+      <div>
+        <div class="flex grid grid-cols-2 gap-4 mb-1">
+          <div class="text-sm font-medium text-slate-700">
+            <%= f.label :email %>
+          </div>
+          <div class="text-sm font-medium text-slate-700">
+            <%= f.label :password %>
+          </div>
         </div>
-        <div>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
-      </div>
 
-      <div class="field">
-        <div class="text-sm font-medium text-slate-700">
-          <%= f.label :password %>
-        </div>
-        <div>
-          <%= f.password_field :password, autocomplete: "current-password" %>
+        <div class="flex grid grid-cols-2 gap-4 mb-6">
+          <div>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "text-sm text-slate-700" %>
+          </div>
+          <div>
+            <%= f.password_field :password, autocomplete: "current-password", class: "text-sm text-slate-700"  %>
+          </div>
         </div>
       </div>
 
       <% if devise_mapping.rememberable? %>
-        <div class="field">
+        <div class="flex items-center gap-1">
           <%= f.check_box :remember_me, class: "w-4 h-4" %>
-          <%= f.label :remember_me %>
+          <%= f.label :remember_me, class: "text-sm font-medium text-slate-700" %>
         </div>
       <% end %>
 
-      <div class="actions">
-        <%= f.submit "Log in", class: "btn btn-primary" %>
-      </div>
-    <% end %>
+      <div class="space-y-2">
+        <div class="flex grid grid-cols-2 gap-4 items-center">
+          <%= f.submit "Log in", class: "btn btn-primary" %>
 
-    <%= render "devise/shared/links" %>
+          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+            <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-secondary" %>
+          <% end %>
+        </div>
+        <div class="flex items-center">
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <%= link_to "Forgot your password?", new_password_path(resource_name), class: "flex mx-auto items-center text-sm text-gray-500 hover:text-gray-700 hover:font-medium" %>
+          <% end %>
+        </div>
+      </div>
+      
+    <% end %>
+    <div class="flex w-full w-full bg-gray-100 py-4 rounded-b-xl">&nbsp;</div>
   </div>
 </div>

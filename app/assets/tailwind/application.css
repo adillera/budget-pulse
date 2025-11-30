@@ -39,14 +39,17 @@
 }
 
 body {
-  background-image: url("bg_pattern.png");
-  background-repeat: repeat;
+  @apply bg-gray-100;
 }
 
 .btn {
-  @apply w-full p-2 rounded-md hover:font-bold hover:cursor-pointer;
+  @apply flex items-center justify-center w-full p-2 rounded-md hover:font-bold hover:cursor-pointer;
 }
 
 .btn-primary {
   @apply bg-budget-pulse-500 hover:bg-budget-pulse-700 text-white;
+}
+
+.btn-secondary {
+  @apply border border-gray-300 text-gray-600 hover:text-gray-800 hover:bg-gray-100;
 }
