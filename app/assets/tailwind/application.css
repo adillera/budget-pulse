@@ -1,16 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  --color-budget-pulse-100: #CCEAFF;
-  --color-budget-pulse-200: #A9D3EE;
-  --color-budget-pulse-300: #86BDDD;
-  --color-budget-pulse-400: #63A6CB;
-  --color-budget-pulse-500: #005796;
-  --color-budget-pulse-600: #004F82;
-  --color-budget-pulse-700: #00466E;
-  --color-budget-pulse-800: #003E62;
-  --color-budget-pulse-900: #023A5F;
-  --color-budget-pulse-1000: #02365B;
+  --color-bp-primary-100: #CCEAFF;
+  --color-bp-primary-200: #A9D3EE;
+  --color-bp-primary-300: #86BDDD;
+  --color-bp-primary-400: #63A6CB;
+  --color-bp-primary-500: #005796;
+  --color-bp-primary-600: #004F82;
+  --color-bp-primary-700: #00466E;
+  --color-bp-primary-800: #003E62;
+  --color-bp-primary-900: #023A5F;
+  --color-bp-primary-1000: #02365B;
+
+  --color-bp-secondary-100: #ffe0c9;
+  --color-bp-secondary-200: #ffb885;
+  --color-bp-secondary-300: #ff924e;
+  --color-bp-secondary-400: #f47f37;
+  --color-bp-secondary-500: #e86d23;
+  --color-bp-secondary-600: #d75c16;
+  --color-bp-secondary-700: #c34d0e;
+  --color-bp-secondary-800: #a63f0a;
+  --color-bp-secondary-900: #883307;
+  --color-bp-secondary-1000: #6a2705;
 }
 
 @layer base {
@@ -39,7 +50,8 @@
 }
 
 body {
-  @apply bg-gray-100;
+  @apply bg-slate-200;
+  font-family: "Montserrat", sans-serif;
 }
 
 .btn {
@@ -47,7 +59,7 @@ body {
 }
 
 .btn-primary {
-  @apply bg-budget-pulse-500 hover:bg-budget-pulse-700 text-white;
+  @apply bg-bp-primary-500 hover:bg-bp-primary-700 text-white;
 }
 
 .btn-secondary {

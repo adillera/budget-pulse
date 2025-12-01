@@ -1,52 +1,86 @@
-<div class="flex mx-auto items-center justify-center h-screen w-full">
-  <div class="w-full max-w-xl border border-gray-200 shadow-xl rounded-xl">
-    <div class="flex w-full w-full bg-gray-100 py-4 rounded-t-xl">
-      <%= image_tag "budgetpulse_long.svg", class: "w-48 mx-auto" %>
+<div class="flex mx-auto items-center justify-center h-screen w-full bg-[url('bg_pattern.png')] bg-repeat">
+  <div class="flex bg-white w-full max-w-6xl p-12 rounded-xl justify-between justify-center items-center">
+    <div class="p-10 border-r-1 border-bp-primary-100">
+      <%= image_tag "budgetpulse_long.svg", class: "w-94 mx-auto" %>
+      
+      <p class="text-2xl font-medium text-bp-primary-500 mt-15">With BudgetPulse, <strong>taking control</strong> of your finances and reaching your <strong>financial goals</strong> has never been easier!</p>
+      <ul class="list-none list-inside text-bp-secondary-500 text-xl font-medium mt-15 space-y-6">
+        <li class="flex items-center gap-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17L4 12" />
+          </svg>
+
+          <span>Track your income and expenses</span>
+        </li>
+        <li class="flex items-center gap-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17L4 12" />
+          </svg>
+
+          <span>Create a budget and track your spending</span>
+        </li>
+        <li class="flex items-center gap-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17L4 12" />
+          </svg>
+
+          <span>Set financial goals and track your progress</span>
+        </li>
+        <li class="flex items-center gap-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 6L9 17L4 12" />
+          </svg>
+
+          <span>Get personalized recommendations for your financial goals</span>
+        </li>
+      </ul>
     </div>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-4 bg-white pt-2 pb-2 pl-12 pr-12" }) do |f| %>
-      <div>
-        <div class="flex grid grid-cols-2 gap-4 mb-1">
+
+    <div class="ml-12 w-full max-w-sm h-full">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-6" }) do |f| %>
+        <div>
           <div class="text-sm font-medium text-slate-700">
             <%= f.label :email %>
           </div>
-          <div class="text-sm font-medium text-slate-700">
-            <%= f.label :password %>
+          <div>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "text-sm text-slate-700" %>
           </div>
         </div>
 
-        <div class="flex grid grid-cols-2 gap-4 mb-6">
-          <div>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "text-sm text-slate-700" %>
+        <div>
+          <div class="text-sm font-medium text-slate-700">
+            <%= f.label :password %>
           </div>
           <div>
             <%= f.password_field :password, autocomplete: "current-password", class: "text-sm text-slate-700"  %>
           </div>
         </div>
-      </div>
 
-      <% if devise_mapping.rememberable? %>
-        <div class="flex items-center gap-1">
-          <%= f.check_box :remember_me, class: "w-4 h-4" %>
-          <%= f.label :remember_me, class: "text-sm font-medium text-slate-700" %>
+        <div class="space-y-6">
+          <div class="flex grid grid-cols-2 gap-4 items-center">
+            <%= f.submit "Log in", class: "btn btn-primary" %>
+
+            <% if devise_mapping.rememberable? %>
+              <div class="flex items-center gap-1 mx-auto">
+                <%= f.check_box :remember_me, class: "w-4 h-4" %>
+                <%= f.label :remember_me, class: "text-sm font-medium text-slate-700" %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="flex items-center justify-between">
+            <div class="flex mx-auto items-center gap-4">
+              <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                <%= link_to "Sign up", new_registration_path(resource_name), class: "tex text-gray-500 hover:text-gray-700 hover:font-medium" %>
+              <% end %>
+              <span class="text-gray-500">|</span>
+              <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-sm text-gray-500 hover:text-gray-700 hover:font-medium" %>
+              <% end %>
+            </div>
+          </div>
         </div>
       <% end %>
-
-      <div class="space-y-2">
-        <div class="flex grid grid-cols-2 gap-4 items-center">
-          <%= f.submit "Log in", class: "btn btn-primary" %>
-
-          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-            <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-secondary" %>
-          <% end %>
-        </div>
-        <div class="flex items-center">
-          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-            <%= link_to "Forgot your password?", new_password_path(resource_name), class: "flex mx-auto items-center text-sm text-gray-500 hover:text-gray-700 hover:font-medium" %>
-          <% end %>
-        </div>
-      </div>
-      
-    <% end %>
-    <div class="flex w-full w-full bg-gray-100 py-4 rounded-b-xl">&nbsp;</div>
+    </div>
   </div>
 </div>
